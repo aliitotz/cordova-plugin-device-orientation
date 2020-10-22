@@ -67,6 +67,7 @@ var compass = {
      * specifies to watch via a distance filter rather than time.
      */
     watchHeading: function (successCallback, errorCallback, options) {
+        alert("frequency " + options.frequency + " " + "filter " + options.filter);
         argscheck.checkArgs('fFO', 'compass.watchHeading', arguments);
         // Default interval (100 msec)
         var frequency = options !== undefined && options.frequency !== undefined ? options.frequency : 100;
