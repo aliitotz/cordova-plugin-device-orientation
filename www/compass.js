@@ -72,13 +72,18 @@ var compass = {
         var frequency = options !== undefined && options.frequency !== undefined ? options.frequency : 100;
         var filter = options !== undefined && options.filter !== undefined ? options.filter : 0;
 
+        alert("frequency " + options.frequency + " " + "filter " + options.filter);
+        
+        
         var id = utils.createUUID();
         if (filter > 0) {
+            alert("running on IOS);
             // is an iOS request for watch by filter, no timer needed
             timers[id] = 'iOS';
             compass.getCurrentHeading(successCallback, errorCallback, options);
         } else {
             // Start watch timer to get headings
+            alert("running on android");
             timers[id] = window.setInterval(function () {
                 compass.getCurrentHeading(successCallback, errorCallback);
             }, frequency);
